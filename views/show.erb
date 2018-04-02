@@ -1,0 +1,6 @@
+<p>Transaction Found</p>
+
+<p>Merchant Name: <%= @transaction.merchant_name %></p>
+<p>Value: <%= @transaction.value() %></p>
+<p>Tag ID: <%= @transaction.tag_id %></p>
+<p><a href="/transactions/<%= @transaction.id %>/edit">Edit Order</a></p>

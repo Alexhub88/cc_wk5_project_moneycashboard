@@ -1,0 +1,13 @@
+<form method="post" action = "/transactions/<%= @transaction.id%>">
+
+  <label for "merchant-name">Merchant Name:  </label>
+
+  <input id="merchant-name" type="text" name="merchant_name" value = "<%= @transaction.merchant_name%>"/>
+
+  <label for "transaction-value">Value:  </label>
+
+  <input id="transaction-value" type="number" name="value" value = "<%= @transaction.value%>"/>
+
+    <input type="submit" value="Update Order"/>
+
+</form>

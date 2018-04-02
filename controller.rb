@@ -1,7 +1,9 @@
 require('sinatra')
+require('pry')
 require('sinatra/contrib/all')
 require_relative('models/transaction')
-require_relative('models/tag')
+require_relative('models/merchant')
+require_relative('models/tagtype')
 
 get '/transactions' do
   @transactions = Transaction.all
@@ -9,7 +11,8 @@ get '/transactions' do
 end
 
 get '/transactions/new' do
-  @tags = Tag.all
+  @merchants = Merchant.all
+  @tagtypes = TagType.all
   erb(:new)
 end
 
@@ -19,13 +22,16 @@ post '/transactions' do
 end
 
 get '/transactions/:id' do
-  @transaction = Transaction.find(params['id'])
+  @transaction = Transaction.find(params['id'].to_i)
+  @merchant = Merchant.find(@transaction.merchant_id)
+  @tagtype = TagType.find(@transaction.tagtype_id)
   erb(:show)
 end
 
 get '/transactions/:id/edit' do
-  @tags = Tag.all
-  @transaction = Transaction.find(params['id'])
+  @merchants = Merchant.all
+  @tagtypes = TagType.all
+  @transaction = Transaction.find(params['id'].to_i)
   erb(:edit)
 end
 

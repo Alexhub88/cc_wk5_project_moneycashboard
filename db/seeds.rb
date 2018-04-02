@@ -1,37 +1,77 @@
 require_relative('../models/transaction')
-require_relative('../models/tag')
+require_relative('../models/tagtype')
+require_relative('../models/merchant')
 
 Transaction.delete_all()
-Tag.delete_all()
+TagType.delete_all()
+Merchant.delete_all()
 
-tag1 = Tag.new({
+merchant1 = Merchant.new({
+  "name" => "Tesco"
+})
+
+merchant2 = Merchant.new({
+  "name" => "Primark"
+})
+
+merchant3 = Merchant.new({
+  "name" => "John Lewis"
+})
+
+merchant4 = Merchant.new({
+  "name" => "Argos"
+})
+
+merchant5 = Merchant.new({
+  "name" => "Dunelm"
+})
+
+merchant1.save()
+merchant2.save()
+merchant3.save()
+merchant4.save()
+merchant5.save()
+
+tagtype1 = TagType.new({
   "type" => "Food"
 })
 
-tag2 = Tag.new({
+tagtype2 = TagType.new({
   "type" => "Clothes"
 })
 
-tag1.save()
-tag2.save()
+tagtype3 = TagType.new({
+  "type" => "Music/DVDs"
+})
 
-p tag1
-p tag2
+tagtype4 = TagType.new({
+  "type" => "Furniture"
+})
+
+tagtype5 = TagType.new({
+  "type" => "Electrical Goods"
+})
+
+tagtype1.save()
+tagtype2.save()
+tagtype3.save()
+tagtype4.save()
+tagtype5.save()
 
 transaction1 = Transaction.new({
-  "merchant_name" => "Tesco",
+  "merchant_id" => merchant1.id,
   "value" => 67,
-  "tag_id" => tag1.id
+  "tagtype_id" => tagtype1.id
 })
 
 transaction2 = Transaction.new({
-  "merchant_name" => "John Lewis",
+  "merchant_id" => merchant2.id,
   "value" => 159,
-  "tag_id" => tag2.id
+  "tagtype_id" => tagtype2.id
 })
-
-p transaction1
-p transaction2
 
 transaction1.save()
 transaction2.save()
+
+p transaction1
+p transaction2

@@ -1,15 +1,19 @@
 <form class="" action="/transactions" method="post">
 
-  <label for ="">Merchant Name:  </label>
-  <input type = "text" name = "merchant_name">
+  <label for="merchant_select">Select Merchant:  </label>
+  <select id="merchant_select" name="merchant_id" >
+    <% @merchants.each do |merchant| %>
+        <option value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
+    <% end %>
+  </select>
 
   <label for ="">Value:  </label>
   <input type = "number" name = "value" >
 
-    <label for="tag_select">Select Tag:</label>
-    <select name="tag_id" id="tag_select">
-      <% @tags.each do |tag| %>
-          <option value="<%= tag.id %>"><%= tag.type.capitalize %></option>
+    <label for="tag_select">Select Transaction Type:  </label>
+    <select id="tag_select" name="tagtype_id" >
+      <% @tagtypes.each do |tagtype| %>
+          <option value="<%= tagtype.id %>"><%= tagtype.type.capitalize %></option>
       <% end %>
     </select>
 

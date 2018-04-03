@@ -76,15 +76,7 @@ class Transaction
         end
       end
 
-      tag_total_hash =
-      {
-        tag_type: tag.type,
-        total: tag_running_total
-      }
-
-      tag_total_hash["tag_type"] = tag.type
-      tag_total_hash["total"] = tag_running_total
-
+      tag_total_hash = {"tag_type" => tag.type, "total" => tag_running_total}
       total_values_by_tag_array.push(tag_total_hash)
     end
 

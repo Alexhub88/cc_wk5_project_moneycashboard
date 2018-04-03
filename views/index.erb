@@ -1,9 +1,11 @@
-<h1>Transaction List</h1>
-<br>
 Total Transaction Value: £<%=@display_total%>
 <br>
-
 <br>
+<% @total_values_by_tag_array.each do |hash| %>
+Total Spend on <%= hash["tag_type"] %>: £<%= hash["total"] %><br>
+<% end %>
+<br>
+<h1>Transaction List</h1>
 <% @transactions.each do |transaction| %>
 <%merchant = Merchant.find(transaction.merchant_id)%>
 <%tagtype = TagType.find(transaction.tagtype_id)%>
@@ -20,7 +22,3 @@ Tag Type:  <%= tagtype.type %> <br>
 <hr />
 <% end %>
 <br>
-
-<% @total_values_by_tag_array.each do |hash| %>
-Total Spend for Tag Type <%= hash["tag_type"] %>: £<%= hash["total"] %><br>
-<% end %>

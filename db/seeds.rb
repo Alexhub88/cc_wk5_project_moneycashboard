@@ -26,35 +26,35 @@ merchant5 = Merchant.new({
   "name" => "Dunelm"
 })
 
+merchant6 = Merchant.new({
+  "name" => "HMV"
+})
+
 merchant1.save()
 merchant2.save()
 merchant3.save()
 merchant4.save()
 merchant5.save()
+merchant6.save()
 
 tagtype1 = TagType.new({
-  "type" => "Food",
-  "tag_total" => "0"
+  "type" => "Food"
 })
 
 tagtype2 = TagType.new({
-  "type" => "Clothes",
-  "tag_total" => "0"
+  "type" => "Clothes"
 })
 
 tagtype3 = TagType.new({
-  "type" => "Music/DVDs",
-  "tag_total" => "0"
+  "type" => "Music/DVDs"
 })
 
 tagtype4 = TagType.new({
-  "type" => "Furniture",
-  "tag_total" => "0"
+  "type" => "Furniture"
 })
 
 tagtype5 = TagType.new({
-  "type" => "Electrical Goods",
-  "tag_total" => "0"
+  "type" => "Electrical Goods"
 })
 
 tagtype1.save()
@@ -94,8 +94,7 @@ transaction5 = Transaction.new({
 })
 
 transaction1.save()
-transaction2.save
+transaction2.save()
 transaction3.save()
 transaction4.save()
 transaction5.save()
-

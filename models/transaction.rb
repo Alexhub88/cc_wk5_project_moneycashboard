@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 
+
 class Transaction
   attr_reader :id
   attr_accessor :merchant_id, :value, :tagtype_id
@@ -70,7 +71,7 @@ class Transaction
       tag_running_total = 0
 
       transactions.each do |transaction|
-         transaction_tag = TagType.find(transaction.tagtype_id)
+        transaction_tag = TagType.find(transaction.tagtype_id)
         if transaction_tag.type == tag.type
           tag_running_total += transaction.value
         end
@@ -82,5 +83,6 @@ class Transaction
 
     return total_values_by_tag_array
   end
+
 
 end

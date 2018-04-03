@@ -9,8 +9,7 @@ CREATE TABLE merchants(
 
 CREATE TABLE tagtypes(
   id SERIAL4 PRIMARY KEY,
-  type VARCHAR(255),
-  tag_total INT4
+  type VARCHAR(255)
 );
 
 CREATE TABLE transactions(

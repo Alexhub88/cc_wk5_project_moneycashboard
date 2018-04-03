@@ -7,18 +7,19 @@ Total Spend on <%= hash["tag_type"] %>: £<%= hash["total"] %><br>
 <br>
 <h1>Transaction List</h1>
 <% @transactions.each do |transaction| %>
-<%merchant = Merchant.find(transaction.merchant_id)%>
-<%tagtype = TagType.find(transaction.tagtype_id)%>
+  <%merchant = Merchant.find(transaction.merchant_id)%>
+  <%tagtype = TagType.find(transaction.tagtype_id)%>
 
-Transaction ID: <%= transaction.id %><br>
-Merchant:  <%= merchant.name %> <br>
-Value: £<%= transaction.value %> <br>
-Tag Type:  <%= tagtype.type %> <br>
-<br>
-  <form method = "post" action = "/transactions/<%=transaction.id%>/delete">
-    <input type = "submit" value = "Delete Transaction"/>
+  Transaction ID: <%= transaction.id %><br>
+  Merchant:  <%= merchant.name %> <br>
+  Value: £<%= transaction.value %> <br>
+  Tag Type:  <%= tagtype.type %> <br>
+  <br>
+    <form method = "post" action = "/transactions/<%=transaction.id%>/delete">
+      <input type = "submit" value = "Delete Transaction"/>
+    </form><br>
 
-<a href="/transactions/<%=transaction.id%>">Show Details</a>
-<hr />
+    <a href="/transactions/<%=transaction.id%>">Show Details</a>
+    <hr />
 <% end %>
 <br>

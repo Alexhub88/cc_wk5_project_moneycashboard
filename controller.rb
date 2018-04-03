@@ -5,6 +5,8 @@ require_relative('models/transaction')
 require_relative('models/merchant')
 require_relative('models/tagtype')
 
+SPENDING_LIMIT = 1000
+
 get '/transactions' do
   @transactions = Transaction.all
   @tagtypes = TagType.all
@@ -21,7 +23,15 @@ end
 
 post '/transactions' do
   Transaction.new(params).save
-  redirect to '/transactions'
+  @spending_limit = 770
+  @display_total = Transaction.get_total_value()
+
+  if @display_total > SPENDING_LIMIT
+    erb(:warning)
+  else
+    redirect to '/transactions'
+  end
+
 end
 
 get '/transactions/:id' do

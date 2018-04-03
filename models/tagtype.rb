@@ -2,17 +2,19 @@ require_relative('../db/sql_runner')
 
 class TagType
   attr_reader :id, :type
+  attr_accessor :tag_total
 
   def initialize(tagtype)
     @id = tagtype['id'].to_i
     @type = tagtype['type']
+    @tag_total = tagtype['tag_total'].to_i
   end
 
   def save
-    sql = "INSERT INTO tagtypes (type)
-    VALUES ($1)
+    sql = "INSERT INTO tagtypes (type, tag_total)
+    VALUES ($1, $2)
     RETURNING id;"
-    values = [@type]
+    values = [@type, @tag_total]
     @id = SqlRunner.run(sql, values).first["id"].to_i
   end
 

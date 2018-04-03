@@ -33,23 +33,28 @@ merchant4.save()
 merchant5.save()
 
 tagtype1 = TagType.new({
-  "type" => "Food"
+  "type" => "Food",
+  "tag_total" => "0"
 })
 
 tagtype2 = TagType.new({
-  "type" => "Clothes"
+  "type" => "Clothes",
+  "tag_total" => "0"
 })
 
 tagtype3 = TagType.new({
-  "type" => "Music/DVDs"
+  "type" => "Music/DVDs",
+  "tag_total" => "0"
 })
 
 tagtype4 = TagType.new({
-  "type" => "Furniture"
+  "type" => "Furniture",
+  "tag_total" => "0"
 })
 
 tagtype5 = TagType.new({
-  "type" => "Electrical Goods"
+  "type" => "Electrical Goods",
+  "tag_total" => "0"
 })
 
 tagtype1.save()
@@ -70,8 +75,27 @@ transaction2 = Transaction.new({
   "tagtype_id" => tagtype2.id
 })
 
-transaction1.save()
-transaction2.save()
+transaction3 = Transaction.new({
+  "merchant_id" => merchant3.id,
+  "value" => 14,
+  "tagtype_id" => tagtype1.id
+})
 
-p transaction1
-p transaction2
+transaction4 = Transaction.new({
+  "merchant_id" => merchant5.id,
+  "value" => 19,
+  "tagtype_id" => tagtype2.id
+})
+
+transaction5 = Transaction.new({
+  "merchant_id" => merchant4.id,
+  "value" => 37,
+  "tagtype_id" => tagtype5.id
+})
+
+transaction1.save()
+transaction2.save
+transaction3.save()
+transaction4.save()
+transaction5.save()
+

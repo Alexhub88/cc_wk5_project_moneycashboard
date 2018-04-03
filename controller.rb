@@ -7,6 +7,9 @@ require_relative('models/tagtype')
 
 get '/transactions' do
   @transactions = Transaction.all
+  @tagtypes = TagType.all
+  @display_total = Transaction.get_total_value()
+  @total_values_by_tag_array = Transaction.get_total_values_by_tag()
   erb(:index)
 end
 

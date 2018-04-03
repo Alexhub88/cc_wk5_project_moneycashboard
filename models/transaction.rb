@@ -54,4 +54,41 @@ class Transaction
     SqlRunner.run( sql)
   end
 
+  def self.get_total_value()
+    transactions = Transaction.all()
+    total_value = 0
+    transactions.each {|transaction| total_value += transaction.value}
+    return total_value
+  end
+
+  def self.get_total_values_by_tag()
+    transactions = Transaction.all()
+    tags = TagType.all()
+    total_values_by_tag_array = []
+
+    tags.each do |tag|
+      tag_running_total = 0
+
+      transactions.each do |transaction|
+         transaction_tag = TagType.find(transaction.tagtype_id)
+        if transaction_tag.type == tag.type
+          tag_running_total += transaction.value
+        end
+      end
+
+      tag_total_hash =
+      {
+        tag_type: tag.type,
+        total: tag_running_total
+      }
+
+      tag_total_hash["tag_type"] = tag.type
+      tag_total_hash["total"] = tag_running_total
+
+      total_values_by_tag_array.push(tag_total_hash)
+    end
+
+    return total_values_by_tag_array
+  end
+
 end

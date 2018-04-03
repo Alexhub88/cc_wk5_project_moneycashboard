@@ -7,7 +7,7 @@
     <% end %>
   </select>
 
-  <label for ="">Value:  </label>
+  <label for ="transaction-value">Value:  </label>
   <input type = "number" name = "value" >
 
     <label for="tag_select">Tag Type:  </label>
@@ -16,6 +16,9 @@
           <option value="<%= tagtype.id %>"><%= tagtype.type.capitalize %></option>
       <% end %>
     </select>
+
+  <label for ="transaction-date">Date:  </label>
+  <input type = "date" name = "date" >
 
   <input type = "submit" value = "Create New Transaction">
 

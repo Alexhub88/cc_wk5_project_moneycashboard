@@ -1,6 +1,7 @@
 require_relative('../models/transaction')
 require_relative('../models/tagtype')
 require_relative('../models/merchant')
+require('date')
 
 Transaction.delete_all()
 TagType.delete_all()
@@ -66,31 +67,36 @@ tagtype5.save()
 transaction1 = Transaction.new({
   "merchant_id" => merchant1.id,
   "value" => 67,
-  "tagtype_id" => tagtype1.id
+  "tagtype_id" => tagtype1.id,
+  "date" => "2017-04-01"
 })
 
 transaction2 = Transaction.new({
   "merchant_id" => merchant2.id,
   "value" => 159,
-  "tagtype_id" => tagtype2.id
+  "tagtype_id" => tagtype2.id,
+  "date" => "2017-07-15"
 })
 
 transaction3 = Transaction.new({
   "merchant_id" => merchant3.id,
   "value" => 14,
-  "tagtype_id" => tagtype1.id
+  "tagtype_id" => tagtype1.id,
+  "date" => "2016-12-25"
 })
 
 transaction4 = Transaction.new({
   "merchant_id" => merchant5.id,
   "value" => 19,
-  "tagtype_id" => tagtype2.id
+  "tagtype_id" => tagtype2.id,
+  "date" => "2014-04-01"
 })
 
 transaction5 = Transaction.new({
   "merchant_id" => merchant4.id,
   "value" => 37,
-  "tagtype_id" => tagtype5.id
+  "tagtype_id" => tagtype5.id,
+  "date" => "2013-09-01"
 })
 
 transaction1.save()

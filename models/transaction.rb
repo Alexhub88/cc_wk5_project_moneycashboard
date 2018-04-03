@@ -3,20 +3,21 @@ require_relative('../db/sql_runner')
 
 class Transaction
   attr_reader :id
-  attr_accessor :merchant_id, :value, :tagtype_id
+  attr_accessor :merchant_id, :value, :tagtype_id, :date
 
   def initialize(transaction)
     @id = transaction['id'].to_i
     @merchant_id = transaction['merchant_id'].to_i
     @value = transaction['value'].to_i
     @tagtype_id = transaction['tagtype_id'].to_i
+    @date = transaction['date']
   end
 
   def save
-    sql = "INSERT INTO transactions (merchant_id, value, tagtype_id)
-    VALUES ($1, $2, $3)
+    sql = "INSERT INTO transactions (merchant_id, value, tagtype_id, date)
+    VALUES ($1, $2, $3, $4)
     RETURNING id;"
-    values = [@merchant_id, @value, @tagtype_id]
+    values = [@merchant_id, @value, @tagtype_id, @date]
     @id = SqlRunner.run(sql, values).first["id"].to_i
   end
 
@@ -37,9 +38,9 @@ class Transaction
 
   def update()
     sql = "UPDATE transactions
-    SET (merchant_id, value, tagtype_id) = ($1, $2, $3)
-    WHERE id = $4"
-    values = [@merchant_id, @value, @tagtype_id, @id]
+    SET (merchant_id, value, tagtype_id, date) = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@merchant_id, @value, @tagtype_id, @date, @id]
     SqlRunner.run( sql, values )
   end
 

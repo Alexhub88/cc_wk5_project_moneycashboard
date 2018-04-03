@@ -23,7 +23,6 @@ end
 
 post '/transactions' do
   Transaction.new(params).save
-  @spending_limit = 770
   @display_total = Transaction.get_total_value()
 
   if @display_total > SPENDING_LIMIT

@@ -1,9 +1,10 @@
 <h1>Total Transaction Value: £<%=@display_total%></h1>
 <br>
-<h2>Total Transaction Value by Tag Type:</h2>
-<% @total_values_by_tag_array.each do |hash| %>
-Total Spend on <%= hash["tag_type"] %>: £<%= hash["total"] %><br>
-<% end %>
+<a href="/transactions/breakdown">Show Breakdown by Tag Type</a>
+<br>
+<br>
+<a href="/transactions/monthly">Show Breakdown by Month</a>
+<br>
 <br>
 <h1>Transaction List</h1>
 <% @transactions.each do |transaction| %>

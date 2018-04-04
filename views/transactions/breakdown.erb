@@ -1,0 +1,6 @@
+<h1>Total Transaction Value: £<%=@display_total%></h1>
+<br>
+<h2>Total Transaction Value by Tag Type:</h2>
+<% @total_values_by_tag_array.each do |hash| %>
+Total Spend on <%= hash["tag_type"] %>: £<%= hash["total"] %><br>
+<% end %>

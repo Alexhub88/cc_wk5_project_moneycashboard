@@ -37,10 +37,6 @@ class Merchant
     sql = "SELECT * FROM merchants WHERE name = $1"
     values = [name]
     result = SqlRunner.run( sql, values )
-
-  #  binding.pry
-
-
     first_result =  result.first
     if first_result != nil
       merchant = Merchant.new( first_result )

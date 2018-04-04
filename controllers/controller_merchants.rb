@@ -13,8 +13,13 @@ get '/merchants/new' do
 end
 
 post '/merchants' do
-  Merchant.new(params).save
-  redirect to '/merchants'
+  @merchant_exists = Merchant.find_by_name(params['name'])
+  if @merchant_exists != nil
+    erb(:'merchants/merchant_found')
+  else
+    Merchant.new(params).save
+    redirect to '/merchants'
+  end
 end
 
 get '/merchants/:id' do
@@ -28,9 +33,9 @@ get '/merchants/:id/edit' do
 end
 
 post '/merchants/:id' do
-  @merchant = Merchant.new(params)
-  @merchant.update
-  redirect to "/merchants/#{params['id']}"
+    @merchant = Merchant.new(params)
+    @merchant.update
+    redirect to "/merchants/#{params['id']}"
 end
 
 post '/merchants/:id/delete' do

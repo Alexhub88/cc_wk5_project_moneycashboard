@@ -4,6 +4,7 @@ require('sinatra/contrib/all')
 require_relative('models/transaction')
 require_relative('models/merchant')
 require_relative('models/tagtype')
+require('date')
 
 SPENDING_LIMIT = 1000
 
@@ -13,6 +14,12 @@ get '/transactions' do
   @display_total = Transaction.get_total_value()
   @total_values_by_tag_array = Transaction.get_total_values_by_tag()
   erb(:index)
+end
+
+get '/transactions/monthly' do
+  @transactions = Transaction.all
+  @monthly_totals = Transaction.get_spending_by_month()
+  erb(:monthly)
 end
 
 get '/transactions/new' do

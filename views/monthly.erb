@@ -1,0 +1,4 @@
+<h1>Total Spending by Month</h1>
+    <% for i in 0..11 %>
+        <p><%=Date::MONTHNAMES[i+1]%>: £<%= @monthly_totals[i] %></p>
+    <% end %>

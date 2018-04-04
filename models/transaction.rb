@@ -1,5 +1,5 @@
 require_relative('../db/sql_runner')
-
+require('date')
 
 class Transaction
   attr_reader :id
@@ -83,6 +83,19 @@ class Transaction
     end
 
     return total_values_by_tag_array
+  end
+
+  def self.get_spending_by_month()
+
+    transactions = Transaction.all()
+    month_totals = Array.new(12,0)
+
+      transactions.each do |transaction|
+        transaction_month = transaction.date.slice(5,2).to_i - 1
+        month_totals[transaction_month] += transaction.value
+      end
+
+    return month_totals
   end
 
 

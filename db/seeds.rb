@@ -82,21 +82,21 @@ transaction3 = Transaction.new({
   "merchant_id" => merchant3.id,
   "value" => 14,
   "tagtype_id" => tagtype1.id,
-  "date" => "2016-12-25"
+  "date" => "2017-12-25"
 })
 
 transaction4 = Transaction.new({
   "merchant_id" => merchant5.id,
   "value" => 19,
   "tagtype_id" => tagtype2.id,
-  "date" => "2014-04-01"
+  "date" => "2017-04-01"
 })
 
 transaction5 = Transaction.new({
   "merchant_id" => merchant4.id,
   "value" => 37,
   "tagtype_id" => tagtype5.id,
-  "date" => "2013-09-01"
+  "date" => "2017-09-01"
 })
 
 transaction1.save()

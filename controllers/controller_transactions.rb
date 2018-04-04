@@ -25,6 +25,7 @@ end
 
 get '/transactions/monthly' do
   @transactions = Transaction.all
+  @display_total = Transaction.get_total_value()
   @monthly_totals = Transaction.get_spending_by_month()
   erb(:'transactions/monthly')
 end

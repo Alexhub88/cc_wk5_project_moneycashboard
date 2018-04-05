@@ -1,12 +1,29 @@
-<h1>Merchant List</h1>
+<h1>Merchants</h1>
+<br>
+<a href="/merchants/new">New Merchant</a>
+<br>
+<br>
+<br>
+<h2>Merchant List</h2>
+<br>
+<table>
+  <tr>
+    <th>Merchant Name</th>
+    <th></th>
+    <th>Show</th>
+    <th></th>
+    <th>Delete</th>
+    </tr>
 <% @merchants.each do |merchant| %>
-  Merchant:  <%= merchant.name %> <br>
-  <br>
-    <form method = "post" action = "/merchants/<%=merchant.id%>/delete">
-      <input type = "submit" value = "Delete Merchant"/>
-    </form><br>
-
-    <a href="/merchants/<%=merchant.id%>">Show Details</a>
-    <hr />
+  <tr>
+    <td><a><%= merchant.name %></a></td>
+    <td>|</td>
+    <td><form method = "get" action = "/merchants/<%=merchant.id%>">
+    <input type = "submit" value = "Show Merchant"/></form></td>
+    <td>|</td>
+    <td><form method = "post" action = "/merchants/<%=merchant.id%>/delete">
+    <input type = "submit" value = "Delete Merchant"/></form></td>
+  </tr>
 <% end %>
+<table>
 <br>

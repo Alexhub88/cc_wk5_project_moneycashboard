@@ -1,12 +1,29 @@
-<h1>List of Tag Types</h1>
+<h1>Tag Types</h1>
+<br>
+<a href="/tagtypes/new">New Tag Type</a>
+<br>
+<br>
+<br>
+<h2>Tag Type List</h2>
+<br>
+<table>
+  <tr>
+    <th>Tag Type</th>
+    <th></th>
+    <th>Show</th>
+    <th></th>
+    <th>Delete</th>
+    </tr>
 <% @tagtypes.each do |tagtype| %>
-  Tag Type:  <%= tagtype.type %> <br>
-  <br>
-    <form method = "post" action = "/tagtypes/<%=tagtype.id%>/delete">
-      <input type = "submit" value = "Delete Tag Type"/>
-    </form><br>
-
-    <a href="/tagtypes/<%=tagtype.id%>">Show Details</a>
-    <hr />
+  <tr>
+    <td><a><%= tagtype.type %></a></td>
+    <td>|</td>
+    <td><form method = "get" action = "/tagtypes/<%=tagtype.id%>">
+    <input type = "submit" value = "Show Tag Type"/></form></td>
+    <td>|</td>
+    <td><form method = "post" action = "/tagtypes/<%=tagtype.id%>/delete">
+    <input type = "submit" value = "Delete Tag Type"/></form></td>
+  </tr>
 <% end %>
+<table>
 <br>

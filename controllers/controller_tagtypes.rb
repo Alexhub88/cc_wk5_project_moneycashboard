@@ -33,14 +33,9 @@ get '/tagtypes/:id/edit' do
 end
 
 post '/tagtypes/:id' do
-  @tagtype_exists = TagType.find(params['id'].to_i)
-  if @tagtype_exists != nil
-    erb(:'tagtypes/tagtype_found')
-  else
     @tagtype = TagType.new(params)
     @tagtype.update
     redirect to "/tagtypes/#{params['id']}"
-  end
 end
 
 post '/tagtypes/:id/delete' do

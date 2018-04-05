@@ -6,21 +6,17 @@
 <br>
 <h2>Tag Type List</h2>
 <br>
-<table>
+<table class="trans-table">
   <tr>
     <th>Tag Type</th>
-    <th></th>
     <th>Show</th>
-    <th></th>
     <th>Delete</th>
     </tr>
 <% @tagtypes.each do |tagtype| %>
   <tr>
     <td><a><%= tagtype.type %></a></td>
-    <td>|</td>
     <td><form method = "get" action = "/tagtypes/<%=tagtype.id%>">
     <input type = "submit" value = "Show Tag Type"/></form></td>
-    <td>|</td>
     <td><form method = "post" action = "/tagtypes/<%=tagtype.id%>/delete">
     <input type = "submit" value = "Delete Tag Type"/></form></td>
   </tr>

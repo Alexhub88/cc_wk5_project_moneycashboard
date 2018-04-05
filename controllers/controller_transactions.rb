@@ -6,7 +6,7 @@ require_relative('../models/merchant')
 require_relative('../models/tagtype')
 require('date')
 
-SPENDING_LIMIT = 1000
+SPENDING_LIMIT = 2000
 
 get '/transactions' do
   @transactions = Transaction.all
@@ -62,6 +62,8 @@ get '/transactions/:id/edit' do
   @transaction = Transaction.find(params['id'].to_i)
   erb(:'transactions/edit')
 end
+
+
 
 post '/transactions/:id' do
   @transaction = Transaction.new(params)

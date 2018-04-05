@@ -13,18 +13,13 @@
 <br>
 <h1>Transaction List</h1>
 <br>
-<table>
+<table class="trans-table">
   <tr>
     <th>Merchant</th>
-    <th></th>
     <th>Value (£)</th>
-    <th></th>
     <th>Tag Type</th>
-    <th></th>
     <th>Date</th>
-    <th></th>
     <th>Show</th>
-    <th></th>
     <th>Delete</th>
   </tr>
 
@@ -33,16 +28,11 @@
   <%tagtype = TagType.find(transaction.tagtype_id)%>
   <tr>
     <td><a><%= merchant.name %></a></td>
-    <td>|</td>
     <td><%= transaction.value %></td>
-    <td>|</td>
     <td><%= tagtype.type %></td>
-    <td>|</td>
     <td><%= transaction.date %></td>
-    <td>|</td>
     <td><form method = "get" action = "/transactions/<%=transaction.id%>">
     <input type = "submit" value = "Show Transaction"/></form></td>
-    <td>|</td>
     <td><form method = "post" action = "/transactions/<%=transaction.id%>/delete">
     <input type = "submit" value = "Delete Transaction"/></form></td>
   </tr>

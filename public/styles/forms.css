@@ -9,7 +9,7 @@ select {
  margin: 15px 0;
  font-size: 0.8em;
  -webkit-appearance: none;
- background: url('/images/hazard.png') 96% / 15% no-repeat blue;
+ background: 96% / 15% no-repeat white;
  font-family: 'Arial', serif;
  border: 1px solid #eee;
  display: block;

@@ -2,21 +2,22 @@ body {
   /*background: blue url('/images/background.jpg');*/
   background-size: 100%;
   background-repeat: no-repeat;
-  color: blue;
-  font-family: 'Merriweather', serif;
+  color: yellow;
+  font-family: 'Arial', serif;
+  background-color: darkblue;
   padding: 0px;
   margin: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Garamond', cursive;
+  color: yellow;
+  font-family: 'Impact', cursive;
   margin: 0px;
   padding: 0px;
 }
 
 h1 {
   font-size: 1.8em;
-  color: blue;
   margin-bottom: 20px;
 }
 
@@ -50,6 +51,38 @@ main {
   padding: 25px;
 }
 
+.trans-table {
+  background-color: black;
+  border: 5px solid white;
+  padding: 10px;
+}
+
+.trans-table td {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.trans-table th {
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+img.warning-img {
+    width: 50px;
+    height: 50px;
+}
+
+img.pound-img {
+    width: 100px;
+    height: 100px;
+}
+
+td {
+    border: 1px solid;
+   }
+
 .flex {
   display: flex;
 }
@@ -61,4 +94,12 @@ main {
 #content {
   border-left: 1px solid darkred;
   padding-left: 25px;
+}
+
+#content a {
+  color: yellow;
+}
+
+nav ul li a {
+  color: yellow;
 }

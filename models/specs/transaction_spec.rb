@@ -53,4 +53,22 @@ class MoneyCashboardTest < MiniTest::Test
     assert_equal("2017-04-01", @transaction1.date)
   end
 
+  def test_totals_match_breakdown_totals
+    overall_total = Transaction.get_total_value()
+    tagtype_total_array = Transaction.get_total_values_by_tag()
+    tagtype_total = 0
+
+    for total_hash in tagtype_total_array
+      tagtype_total += total_hash["total"]
+    end
+
+    month_totals_array = Transaction.get_spending_by_month()
+    months_total = month_totals_array.sum
+
+    assert_equal(overall_total,tagtype_total)
+
+    assert_equal(overall_total,months_total)
+
+  end
+
 end

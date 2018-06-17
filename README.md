@@ -6,7 +6,8 @@ architecture for saving and accessing data on a PostgreSQL database, it allows t
 a breakdown of the total spending by Tagtype, as well as by month.
 
 ## To run the application
-* Clone the repository to a local network folder using the 'git clone' command:       git@github.com:Alexhub88/cc_wk5_project_moneycashboard.git
+* Clone the repository to a local network folder using the 'git clone' command: 
+* git clone git@github.com:Alexhub88/cc_wk5_project_moneycashboard.git
 * Enter the folder 
 * Enter: 'ruby app.rb' and press enter
 * Open Google Chrome and go to `http://localhost:4567/`, then press enter

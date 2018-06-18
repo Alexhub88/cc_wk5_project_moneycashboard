@@ -5,13 +5,14 @@ architecture for saving and accessing data on a PostgreSQL database, it allows t
 (called Tagtype in the application) and Merchant, i.e. the store where the item was purchased. It also allows the user to find
 a breakdown of the total spending by Tagtype, as well as by month.
 
-# Project Brief
+# Project Brief:
 
 You want to start tracking your spending in an attempt to be more frugal with money. You have decided to make a budgeting app to help you see where all of your money is being spent.
 
 You must be able to create new Transactions ( which should include a merchant name, e.g. Tesco, and a value ) which have an associated Tag (e.g. 'food', 'clothes'). Your app would then be able to track a total, and display this in a view.
 
 # MVP:
+
 * Create new transactions
 * Display a list of all transactions
 * Display total amount spent

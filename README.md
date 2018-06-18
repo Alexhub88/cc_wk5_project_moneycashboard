@@ -1,5 +1,7 @@
 # MoneyCashBoard Budget Tracker
 
+## Overview:
+
 MoneyCashBoard is a web application made with Ruby and Sinatra. Following a Model View Controller design, and a RESTful route 
 architecture for saving and accessing data on a PostgreSQL database, it allows the user to track spending by spending type
 (called Tagtype in the application) and Merchant, i.e. the store where the item was purchased. It also allows the user to find

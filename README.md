@@ -25,7 +25,7 @@ You must be able to create new Transactions ( which should include a merchant na
 * Add a date to the transactions and view total spending by month
 * Any other ideas you might come up with
 
-## To Run the Application
+## To Run the Application:
 
 * Clone the repository to a local network folder using the 'git clone' command: 
 * git clone git@github.com:Alexhub88/cc_wk5_project_moneycashboard.git
